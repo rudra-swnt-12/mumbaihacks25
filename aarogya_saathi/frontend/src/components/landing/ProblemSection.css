@@ -1,0 +1,54 @@
+.problem-section {
+    padding: 6rem 0;
+    background-color: var(--background-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: serif;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.problem-card {
+    padding: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.problem-icon-wrapper {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 0.75rem;
+    background-color: #FEF3C7;
+    /* Light Amber */
+    border-radius: 12px;
+}
+
+.problem-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.problem-card-desc {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}

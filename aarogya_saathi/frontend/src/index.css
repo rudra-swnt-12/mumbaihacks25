@@ -1,0 +1,52 @@
+:root {
+  --primary-color: #0F5132;
+  /* Forest Green */
+  --primary-light: #D1E7DD;
+  /* Light Green */
+  --secondary-color: #198754;
+  /* Green */
+  --accent-color: #FFC107;
+  /* Amber/Yellow for icons */
+  --text-dark: #212529;
+  --text-light: #6C757D;
+  --white: #FFFFFF;
+  --background-light: #F8F9FA;
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-dark);
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+button {
+  cursor: pointer;
+}

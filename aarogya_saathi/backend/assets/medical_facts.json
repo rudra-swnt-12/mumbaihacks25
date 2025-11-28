@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "Standard Triage Protocols (WHO/ICMR Guidelines)",
+    "purpose": "Ground Truth for AI Triage Agent. NOT for final diagnosis."
+  },
+  "chronic_conditions": {
+    "diabetes_hypoglycemia": {
+      "condition_name": "Hypoglycemia (Low Blood Sugar)",
+      "keywords": ["dizzy", "chakkar", "sweating", "pasina", "shaking", "kaapna", "hunger", "bhook", "confusion"],
+      "red_flags": ["Unconscious", "Seizure", "Unable to swallow"],
+      "triage_logic": "If conscious -> Priority 2. If unconscious -> Priority 1.",
+      "protocol": "Immediate intake of 15g fast-acting sugar (3 spoons sugar, glucose powder, fruit juice, or hard candy). Wait 15 mins. If not better, repeat. Do NOT give insulin."
+    },
+    "diabetes_hyperglycemia": {
+      "condition_name": "Hyperglycemia (High Blood Sugar)",
+      "keywords": ["thirst", "pyaas", "urination", "susu", "bathroom", "dry mouth", "tired", "fatigue", "blurred vision"],
+      "red_flags": ["Fruity breath smell", "Rapid breathing", "Nausea/Vomiting", "Confusion"],
+      "triage_logic": "If red flags present (DKA risk) -> Priority 1. Else -> Priority 3.",
+      "protocol": "Drink plenty of water (sugar-free). Check ketones if possible. Continue medication as prescribed. If sugar > 300 mg/dL repeatedly, consult doctor."
+    },
+    "hypertension": {
+      "condition_name": "Hypertension (High BP)",
+      "keywords": ["headache", "sar dard", "neck pain", "nosebleed", "nakseer", "vision", "dhundhla"],
+      "red_flags": ["Chest pain", "Severe headache", "Confusion", "Numbness in arm/face"],
+      "triage_logic": "If chest pain/numbness -> Priority 1 (Heart Attack/Stroke risk). Else -> Priority 2.",
+      "protocol": "Sit down and rest immediately. Do not smoke or drink coffee. Take prescribed BP medication if missed. If BP > 180/120, go to hospital."
+    }
+  },
+  "infectious_diseases": {
+    "dengue_malaria": {
+      "condition_name": "Vector Borne (Dengue/Malaria)",
+      "keywords": ["fever", "bukhaar", "chills", "thandi", "shivering", "joint pain", "haddi tod bukhaar", "eye pain"],
+      "red_flags": ["Bleeding from gums/nose", "Black stool", "Severe abdominal pain", "Persistent vomiting"],
+      "triage_logic": "If bleeding/severe pain -> Priority 1 (Dengue Hemorrhagic Fever). Else -> Priority 2.",
+      "protocol": "Hydration is critical (ORS, Coconut water). Rest. Paracetamol for fever. WARNING: Do NOT take Aspirin or Ibuprofen (increases bleeding risk)."
+    },
+    "viral_fever": {
+      "condition_name": "Common Viral Fever / Flu",
+      "keywords": ["runny nose", "sardi", "cough", "khasi", "sore throat", "gala kharab", "mild fever"],
+      "red_flags": ["Difficulty breathing", "Chest pain", "Fever > 103°F", "Coughing blood"],
+      "triage_logic": "If breathing issues -> Priority 1. Else -> Priority 3.",
+      "protocol": "Warm saline gargle. Steam inhalation. Hydration. Paracetamol if fever > 100°F. Isolate if possible."
+    },
+    "gastroenteritis": {
+      "condition_name": "Diarrhea / Food Poisoning",
+      "keywords": ["loose motion", "dast", "vomiting", "ulti", "stomach pain", "pet dard"],
+      "red_flags": ["Blood in stool", "No urine for 8 hours (Dehydration)", "Sunken eyes", "Unconscious"],
+      "triage_logic": "If severe dehydration signs -> Priority 1. Else -> Priority 2.",
+      "protocol": "Start ORS (Oral Rehydration Solution) immediately. Sip slowly. Avoid solid food for a few hours. Avoid milk/dairy."
+    }
+  },
+  "critical_emergencies": {
+    "myocardial_infarction": {
+      "condition_name": "Heart Attack",
+      "keywords": ["chest pain", "seene mein dard", "heavy chest", "left arm pain", "jaw pain", "sweating", "ghabrahat"],
+      "red_flags": ["Pain lasting > 5 mins", "Pain radiating to arm/jaw", "Difficulty breathing"],
+      "triage_logic": "ALWAYS PRIORITY 1 (CRITICAL).",
+      "protocol": "Stop all activity. Sit down. Loosen tight clothing. Chew 300mg Aspirin (Disprin) if available and not allergic. Call Ambulance/Neighbor immediately."
+    },
+    "stroke": {
+      "condition_name": "Stroke (CVA)",
+      "keywords": ["face drooping", "mooh tedha", "arm weakness", "haath sunn", "speech slurred", "bolne mein dikkat"],
+      "red_flags": ["Sudden numbness", "Sudden confusion", "Sudden severe headache"],
+      "triage_logic": "ALWAYS PRIORITY 1 (CRITICAL).",
+      "protocol": "Note the time symptoms started. Do not give food or water (choking risk). Transport to hospital immediately."
+    },
+    "snake_bite": {
+      "condition_name": "Snake Bite",
+      "keywords": ["snake", "saamp", "bite", "kaata", "puncture wounds"],
+      "red_flags": ["Swelling", "Bleeding", "Paralysis", "Drooping eyelids"],
+      "triage_logic": "ALWAYS PRIORITY 1 (CRITICAL).",
+      "protocol": "Immobilize the limb (do not move it). Keep limb below heart level. Do NOT suck venom. Do NOT tie tight tourniquet. Transport to hospital."
+    }
+  },
+  "respiratory": {
+    "asthma_copd": {
+      "condition_name": "Asthma / Breathing Issue",
+      "keywords": ["wheezing", "saans phoolna", "breathless", "tight chest", "inhaler"],
+      "red_flags": ["Can't speak full sentences", "Lips turning blue", "Inhaler not helping"],
+      "triage_logic": "If red flags -> Priority 1. Else -> Priority 2.",
+      "protocol": "Sit upright. Use Rescue Inhaler (Puffs) immediately. Pursed-lip breathing. Keep calm."
+    }
+  },
+  "general_symptoms": {
+    "anemia": {
+      "condition_name": "Anemia / Weakness",
+      "keywords": ["weakness", "kamzori", "pale", "chakkkar", "tired", "thakan"],
+      "red_flags": ["Fainting", "Chest pain", "Shortness of breath"],
+      "triage_logic": "Priority 3 unless fainting.",
+      "protocol": "Iron-rich diet (Spinach, Jaggery/Gud, Dates). Hydration. Consult doctor for Iron/Folic acid supplements."
+    }
+  }
+}

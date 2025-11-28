@@ -1,0 +1,57 @@
+[project]
+name = "aarogya-saathi"
+version = "0.1.0"
+description = "Agentic AI swarm known as Aarogya Saathi, a voice-first health guardian."
+authors = [
+    { name = "Rudra Sawant", email = "rudra.vs28@gmail.com" },
+    { name = "Tirtha Nevrekar", email = "tirthanevrekar987@gmail.com" },
+    { name = "Rudra Katkar", email = "rudrakatkar9@gmail.com" },
+    { name = "Komal Kamble", email = "komalkamble9@gmail.com" }
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+keywords = ["medical", "agentic", "aarogya"]
+dependencies = [
+    "deepgram-sdk>=5.3.0",
+    "fastapi>=0.121.3",
+    "faster-whisper>=1.2.1",
+    "httpx>=0.28.1",
+    "langchain-community>=0.4.1",
+    "langchain-groq>=1.0.1",
+    "langgraph>=1.0.3",
+    "numpy>=2.3.4",
+    "pydantic>=2.12.4",
+    "pydantic-settings>=2.12.0",
+    "python-multipart>=0.0.20",
+    "requests>=2.32.5",
+    "sentencepiece>=0.2.1",
+    "torch>=2.9.1",
+    "transformers>=4.57.1",
+    "uvicorn>=0.38.0",
+    "websockets>=15.0.1",
+    "twilio>=9.8.6",
+    "librosa>=0.11.0",
+    "soundfile>=0.13.1",
+    "scipy>=1.16.3",
+    "apscheduler>=3.11.1",
+    "rapidfuzz>=3.14.3",
+    "sqlalchemy>=2.0.44",
+    "psycopg2-binary>=2.9.11",
+    "passlib[bcrypt]>=1.7.4",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+    "ruff>=0.7.0",
+    "webrtcvad-wheels>=2.0.14",
+    "indic-transliteration>=2.3.75",
+]
+
+gpu = [
+    "faster-whisper>=1.2.1",
+]
+
+[tool.uv.sources]
+aarogya-saathi = { workspace = true }

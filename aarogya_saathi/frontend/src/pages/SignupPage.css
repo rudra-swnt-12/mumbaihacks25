@@ -1,0 +1,828 @@
+/* SignupPage.css - Multi-step signup flow */
+
+.signup-container {
+    min-height: 100vh;
+    background-color: #F8F9FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Header */
+.signup-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.signup-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0D9488;
+    margin-bottom: 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.signup-header p {
+    font-size: 1rem;
+    color: #0D9488;
+    font-weight: 400;
+}
+
+/* Step Container */
+.signup-step {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+}
+
+/* Step 1: User Type Selection */
+.user-type-selection {
+    text-align: center;
+}
+
+.user-type-selection h2 {
+    font-size: 1rem;
+    color: #6B7280;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.user-type-cards {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.user-type-card {
+    flex: 1;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.user-type-card:hover {
+    border-color: #0D9488;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+}
+
+.user-type-icon {
+    width: 64px;
+    height: 64px;
+    background-color: #D1FAE5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.user-type-icon svg {
+    color: #0D9488;
+}
+
+.user-type-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.user-type-card p {
+    font-size: 0.875rem;
+    color: #6B7280;
+    line-height: 1.4;
+}
+
+/* Step 2: Phone & OTP */
+.phone-otp-step {
+    text-align: center;
+}
+
+.phone-otp-step h2 {
+    font-size: 1rem;
+    color: #4B5563;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.phone-input-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.country-code {
+    width: 80px;
+    padding: 0.875rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    color: #0D9488;
+    background-color: #FFFFFF;
+    text-align: center;
+    font-weight: 600;
+}
+
+.phone-input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.phone-input-wrapper input {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.phone-input-wrapper input::placeholder {
+    color: #9CA3AF;
+}
+
+.phone-input-wrapper input:focus {
+    border-color: #0D9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.voice-input-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.voice-input-icon:hover {
+    color: #0D9488;
+}
+
+.send-otp-button {
+    width: 100%;
+    padding: 0.9375rem 1rem;
+    background-color: #0D9488;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 2rem;
+}
+
+.send-otp-button:hover {
+    background-color: #0F766E;
+}
+
+.otp-section {
+    margin-top: 2rem;
+}
+
+.otp-section p {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 1rem;
+}
+
+.otp-inputs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.otp-input {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.otp-input:focus {
+    border-color: #0D9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.verify-button {
+    width: 100%;
+    padding: 0.9375rem 1rem;
+    background-color: #D1FAE5;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: not-allowed;
+    margin-bottom: 1rem;
+}
+
+.verify-button.active {
+    background-color: #0D9488;
+    cursor: pointer;
+}
+
+.verify-button.active:hover {
+    background-color: #0F766E;
+}
+
+.resend-otp {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+}
+
+.resend-otp a {
+    color: #0D9488;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.resend-otp a:hover {
+    text-decoration: underline;
+}
+
+.forgot-password-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #0D9488;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+/* Step 3: Profile Creation */
+.profile-step {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.profile-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #D1FAE5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-icon svg {
+    color: #0D9488;
+}
+
+.profile-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1F2937;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.profile-input-wrapper {
+    position: relative;
+}
+
+.profile-input-wrapper input {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    color: #0D9488;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.profile-input-wrapper input::placeholder {
+    color: #9CA3AF;
+}
+
+.profile-input-wrapper input:focus {
+    border-color: #0D9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.complete-profile-button {
+    width: 100%;
+    padding: 0.9375rem 1rem;
+    background-color: #0D9488;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem;
+}
+
+.complete-profile-button:hover {
+    background-color: #0F766E;
+}
+
+/* Login Link */
+.login-link {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-top: 2rem;
+}
+
+.login-link a {
+    color: #0D9488;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ========== DOCTOR SIGNUP STYLES ========== */
+
+/* Doctor Step 1: Split-screen Account Creation */
+.doctor-account-creation {
+    display: flex;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+}
+
+.doctor-left-panel {
+    width: 50%;
+    background-color: #E5E7EB;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.doctor-branding {
+    margin-bottom: auto;
+}
+
+.doctor-branding h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #10B981;
+    margin-bottom: 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.doctor-branding p {
+    font-size: 1rem;
+    color: #10B981;
+    font-weight: 400;
+}
+
+.doctor-tagline {
+    margin-top: auto;
+}
+
+.doctor-tagline h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.doctor-tagline p {
+    font-size: 1rem;
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+.doctor-right-panel {
+    width: 50%;
+    background-color: #FFFFFF;
+    padding: 4rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doctor-form-container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.doctor-form-container h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.doctor-form-container p {
+    font-size: 0.9375rem;
+    color: #6B7280;
+    margin-bottom: 2rem;
+}
+
+.doctor-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.doctor-form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.doctor-input-wrapper {
+    position: relative;
+}
+
+.doctor-input-wrapper input {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.doctor-input-wrapper input::placeholder {
+    color: #9CA3AF;
+}
+
+.doctor-input-wrapper input:focus {
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.password-toggle-icon:hover {
+    color: #4B5563;
+}
+
+.forgot-password-text {
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+.forgot-password-text a {
+    font-size: 0.875rem;
+    color: #10B981;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.forgot-password-text a:hover {
+    text-decoration: underline;
+}
+
+.create-account-button {
+    width: 100%;
+    padding: 0.9375rem 1rem;
+    background-color: #374151;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem;
+}
+
+.create-account-button:hover {
+    background-color: #1F2937;
+}
+
+.already-account {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-top: 1.5rem;
+}
+
+.already-account a {
+    color: #10B981;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.already-account a:hover {
+    text-decoration: underline;
+}
+
+/* Doctor Step 2: Professional Profile */
+.professional-profile-step {
+    max-width: 600px;
+    width: 100%;
+}
+
+.progress-indicator {
+    margin-bottom: 2rem;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #E5E7EB;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.professional-profile-step h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.professional-profile-step>p {
+    font-size: 0.9375rem;
+    color: #6B7280;
+    margin-bottom: 2rem;
+}
+
+.form-group-select {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-select label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.form-group-select select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: #6B7280;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.form-group-select select:focus {
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.professional-input-wrapper {
+    position: relative;
+}
+
+.professional-input-wrapper input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.professional-input-wrapper input::placeholder {
+    color: #9CA3AF;
+}
+
+.professional-input-wrapper input:focus {
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.professional-input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    pointer-events: none;
+}
+
+.save-continue-button {
+    width: 100%;
+    padding: 0.9375rem 1rem;
+    background-color: #10B981;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem;
+}
+
+.save-continue-button:hover {
+    background-color: #059669;
+}
+
+.skip-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.skip-link a {
+    font-size: 0.875rem;
+    color: #6B7280;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.skip-link a:hover {
+    color: #1F2937;
+}
+
+/* Doctor Step 3: Success Confirmation */
+.success-confirmation {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+}
+
+.success-icon svg {
+    color: #10B981;
+}
+
+.success-confirmation h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 1rem;
+}
+
+.success-confirmation p {
+    font-size: 0.9375rem;
+    color: #6B7280;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.dashboard-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.9375rem 1rem;
+    background-color: #10B981;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-button:hover {
+    background-color: #059669;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-step {
+        padding: 2rem;
+    }
+
+    .signup-header h1 {
+        font-size: 2rem;
+    }
+
+    .user-type-cards {
+        flex-direction: column;
+    }
+
+    .otp-inputs {
+        gap: 0.5rem;
+    }
+
+    .otp-input {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    /* Doctor responsive */
+    .doctor-account-creation {
+        flex-direction: column;
+    }
+
+    .doctor-left-panel,
+    .doctor-right-panel {
+        width: 100%;
+    }
+
+    .doctor-left-panel {
+        padding: 2rem;
+        min-height: auto;
+    }
+
+    .doctor-right-panel {
+        padding: 2rem;
+    }
+
+    .doctor-tagline h2 {
+        font-size: 1.5rem;
+    }
+}

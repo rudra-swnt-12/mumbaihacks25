@@ -1,0 +1,270 @@
+/* LoginPage.css - Exact design implementation */
+
+.login-container {
+    min-height: 100vh;
+    background-color: #F8F9FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.login-card {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Left Branding Section */
+.login-branding {
+    width: 50%;
+    background-color: #FAFAFA;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-branding h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0D9488;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.login-branding p {
+    font-size: 1.125rem;
+    color: #6B7280;
+    font-weight: 300;
+}
+
+/* Right Form Section */
+.login-form-section {
+    width: 50%;
+    background-color: #FFFFFF;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 2rem;
+}
+
+/* Toggle Switch */
+.login-toggle {
+    background-color: #F3F4F6;
+    padding: 4px;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.login-toggle button {
+    flex: 1;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #9CA3AF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.login-toggle button.active {
+    background-color: #FFFFFF;
+    color: #1F2937;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-toggle button:hover:not(.active) {
+    color: #4B5563;
+}
+
+/* Form Container */
+.login-form-container {
+    position: relative;
+    min-height: 320px;
+}
+
+.login-form {
+    position: absolute;
+    width: 100%;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4B5563;
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-input:focus {
+    border-color: #0D9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+/* Password Input with Toggle */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .form-input {
+    padding-right: 3rem;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: #4B5563;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.forgot-password a {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0D9488;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.login-button {
+    width: 100%;
+    padding: 0.9375rem 1rem;
+    background-color: #0D9488;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.login-button:hover {
+    background-color: #0F766E;
+}
+
+/* Sign Up Link */
+.signup-link {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-top: 1.5rem;
+}
+
+.signup-link a {
+    color: #0D9488;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        max-width: 500px;
+    }
+
+    .login-branding,
+    .login-form-section {
+        width: 100%;
+    }
+
+    .login-branding {
+        padding: 2rem;
+    }
+
+    .login-branding h1 {
+        font-size: 2rem;
+    }
+
+    .login-branding p {
+        font-size: 1rem;
+    }
+
+    .login-form-section {
+        padding: 2rem;
+    }
+}

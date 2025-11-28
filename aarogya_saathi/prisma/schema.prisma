@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id                   Int            @id @default(autoincrement())
+  phone_number         String?        @unique(map: "ix_patients_phone_number") @db.VarChar
+  full_name            String?        @db.VarChar
+  age                  Int?
+  gender               String?        @db.VarChar
+  location             String?        @db.VarChar
+  condition            String?        @db.VarChar
+  existing_conditions  String?
+  allergies            String?        @db.VarChar
+  last_glucose         String?        @db.VarChar
+  medication_adherence Int?
+  is_onboarded         Boolean?
+  created_at           String?        @db.VarChar
+  consultations        Consultation[]
+
+  @@index([id], map: "ix_patients_id")
+  @@map("patients")
+}
+
+model Consultation {
+  id         Int      @id @default(autoincrement())
+  patient_id Int?
+  timestamp  String?  @db.VarChar
+  summary    String?
+  risk_score Int?
+  patient    Patient? @relation(fields: [patient_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([id], map: "ix_consultations_id")
+  @@map("consultations")
+}
+
+model BanditState {
+  id         Int     @id @default(autoincrement())
+  agent_name String? @unique @db.VarChar
+  alpha      Json?   @db.Json
+  beta       Json?   @db.Json
+
+  @@index([id], map: "ix_bandit_state_id")
+  @@map("bandit_state")
+}
