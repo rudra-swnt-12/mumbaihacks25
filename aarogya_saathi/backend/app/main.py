@@ -9,6 +9,7 @@ from app.core.exceptions import AarogyaException
 from app.routers.community import router as community_router
 from app.routers.analytics import router as analytics_router
 from app.routers.patient_actions import router as patient_actions_router
+from app.routers.trigger_call import router as trigger_call_router
 
 app = FastAPI(
     title="Aarogya Saathi Backend",
@@ -30,6 +31,7 @@ app.include_router(portal_router)
 app.include_router(community_router)
 app.include_router(analytics_router)
 app.include_router(patient_actions_router)
+app.include_router(trigger_call_router)
 
 
 @app.exception_handler(AarogyaException)

@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
 import './Hero.css';
 
 const Hero = () => {
+    const navigate = useNavigate();
+
     return (
         <section className="hero">
             <div className="container hero-container">
@@ -15,8 +18,10 @@ const Hero = () => {
                         The world's first Autonomous Agentic Swarm that turns a standard phone call into a medical lifeline. Bridging the digital divide with Agentic AI.
                     </p>
                     <div className="hero-actions">
-                        <Button variant="primary">Experience the Demo</Button>
-                        <Button variant="secondary">View System Architecture</Button>
+                        <Button variant="primary" onClick={() => navigate('/call')}>Get a Call</Button>
+                        <Button variant="secondary" onClick={() => navigate('/architecture')}>
+                            View System Architecture
+                        </Button>
                     </div>
                 </div>
                 <div className="hero-image-container">

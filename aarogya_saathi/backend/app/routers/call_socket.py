@@ -18,6 +18,7 @@ from app.services.asr_correction import ASRCorrectionService
 from app.agents.onboarding_agent import OnboardingAgent
 from app.agents.medication_agent import MedicationAgent
 from app.agents.soap_agent import SOAPAgent
+from app.agents.symptom_agent import SymptomAgent
 from app.core.database import SessionLocal, Patient, Consultation, Doctor
 
 router = APIRouter()
@@ -33,6 +34,7 @@ async def phone_stream_endpoint(websocket: WebSocket):
     med_agent = MedicationAgent()
     checkin_agent = CheckinAgent()
     soap_agent = SOAPAgent()
+    symptom_agent = SymptomAgent()
 
     asr_service = ASRCorrectionService()
     weather_service = WeatherService()
@@ -178,22 +180,53 @@ async def phone_stream_endpoint(websocket: WebSocket):
                     )
 
             else:
-                med_msg, med_context = med_agent.process(primary_transcript)
-                current_med_state = med_agent.get_status()
-                guidance = checkin_agent.determine_next_move(
-                    primary_transcript, current_med_state
-                )
-                clinical_risk = checkin_agent.get_risk_score()
+                # First, analyze for symptoms (fever, cough, etc.)
+                symptom_analysis = symptom_agent.analyze(primary_transcript)
+                
+                if symptom_analysis["has_symptoms"]:
+                    # Patient is reporting symptoms - provide doctor-like advice
+                    print(f"SYMPTOMS DETECTED: {symptom_analysis['symptoms_detected']}")
+                    print(f"PRIORITY: {symptom_analysis['priority']}")
+                    
+                    symptom_context = symptom_agent.get_llm_context()
+                    
+                    # Get clinical risk for additional context
+                    clinical_risk = checkin_agent.get_risk_score()
+                    
+                    full_context = f"""
+                    {symptom_context}
+                    
+                    CLINICAL RISK LEVEL: {clinical_risk}
+                    
+                    USER SAID: "{primary_transcript}"
+                    
+                    Provide warm, doctor-like medical advice. Include:
+                    1. Home remedies they can try
+                    2. What medicines might help (if safe to suggest)
+                    3. When to seek hospital care
+                    """
+                    
+                    _, response_text = await groq_service.generate_response(
+                        primary_transcript, context=full_context, is_symptom_consultation=True
+                    )
+                else:
+                    # No symptoms - handle as check-in/medication flow
+                    med_msg, med_context = med_agent.process(primary_transcript)
+                    current_med_state = med_agent.get_status()
+                    guidance = checkin_agent.determine_next_move(
+                        primary_transcript, current_med_state
+                    )
+                    clinical_risk = checkin_agent.get_risk_score()
 
-                triage_context = f"""
-                Patient on Phone. 
-                CLINICAL STATUS: {clinical_risk}
-                OBJECTIVE: {guidance}
-                {f"MEDICATION STATUS: {med_context}" if med_context else ""}
-                """
-                _, response_text = await groq_service.generate_response(
-                    primary_transcript, context=triage_context
-                )
+                    triage_context = f"""
+                    Patient on Phone. 
+                    CLINICAL STATUS: {clinical_risk}
+                    OBJECTIVE: {guidance}
+                    {f"MEDICATION STATUS: {med_context}" if med_context else ""}
+                    """
+                    _, response_text = await groq_service.generate_response(
+                        primary_transcript, context=triage_context
+                    )
 
             print(f"Agent: {response_text}")
 

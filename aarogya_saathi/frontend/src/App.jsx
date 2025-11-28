@@ -7,6 +7,8 @@ import DoctorPortal from './pages/DoctorPortal';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import OTPVerificationPage from './pages/OTPVerificationPage';
+import SystemArchitecture from './pages/SystemArchitecture';
+import GetCallPage from './pages/GetCallPage';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/otp-verify" element={<OTPVerificationPage />} />
+        <Route path="/architecture" element={<SystemArchitecture />} />
+  <Route path="/call" element={<GetCallPage />} />
 
       </Routes>
     </Router>

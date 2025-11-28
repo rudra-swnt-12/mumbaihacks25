@@ -1,0 +1,215 @@
+.system-architecture-page {
+    min-height: 100vh;
+    height: 100vh;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.arch-header {
+    position: relative;
+    padding: 0.75rem 2rem;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    flex-shrink: 0;
+}
+
+.back-button {
+    position: absolute;
+    top: 0.75rem;
+    left: 1rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 4px;
+    color: #666;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1px solid #e5e5e5;
+}
+
+.back-button:hover {
+    background: #f5f5f5;
+    color: #1a1a1a;
+}
+
+.arch-header-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.arch-header-content h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+}
+
+/* Architecture Section */
+.architecture-section {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.arch-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* SVG Arrows */
+.connection-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+}
+
+.arrow-path {
+    stroke-dasharray: 0;
+    transition: opacity 0.3s;
+}
+
+.arrow-path:hover {
+    opacity: 0.8 !important;
+}
+
+.arrow-path.dashed {
+    stroke-dasharray: 8, 4;
+    stroke-width: 2.5;
+}
+
+/* Columns */
+.arch-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* more space between header and cards */
+    position: relative;
+    z-index: 2;
+}
+
+.processing-column {
+    background: rgba(59, 130, 246, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.column-header {
+    margin-bottom: 0.5rem;
+}
+
+.column-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.column-header p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.column-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* add gaps between layers/cards */
+}
+
+/* Cards */
+.arch-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.arch-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #d4d4d4;
+}
+
+.highlight-card {
+    border: 2px dashed #ef4444;
+    background: #fef2f2;
+}
+
+.highlight-card:hover {
+    border-color: #dc2626;
+}
+
+.card-icon {
+    margin-bottom: 0.5rem;
+}
+
+.arch-card h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+}
+
+.arch-card p {
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .arch-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .processing-column {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .arch-header-content h1 {
+        font-size: 0.9rem;
+    }
+
+    .architecture-section {
+        padding: 1rem;
+    }
+
+    .arch-container {
+        gap: 0.75rem;
+    }
+
+    .arch-card {
+        padding: 0.75rem;
+    }
+
+    .column-header h2 {
+        font-size: 0.95rem;
+    }
+}

@@ -200,27 +200,18 @@ async def update_patient_profile(request: ProfileUpdate, db: Session = Depends(g
     """
     Allows the patient to update their profile details from the web/app form.
     """
-    patient = db.query(Patient).filter(Patient.phone_number == request.phone_number).first()
-    
+    patient = (
+        db.query(Patient).filter(Patient.phone_number == request.phone_number).first()
+    )
+
     if not patient:
         raise HTTPException(status_code=404, detail="Patient not found")
 
     patient.full_name = request.full_name
     patient.age = request.age
-    if request.gender:
-        patient.gender = request.gender
-    
-    patient.is_onboarded = True
-    
-    db.commit()
-    db.refresh(patient)
+    patient.gender = request.gender
 
-    return {
-        "status": "success", 
-        "message": "Profile updated successfully",
-        "patient": {
-            "id": patient.id,
-            "name": patient.full_name,
-            "is_onboarded": patient.is_onboarded
-        }
-    }
+    patient.is_onboarded = True
+    db.commit()
+
+    return {"status": "success", "message": "Profile updated successfully."}
