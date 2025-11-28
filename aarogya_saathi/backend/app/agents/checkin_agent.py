@@ -12,24 +12,28 @@ class CheckinAgent:
         if "not" in text or "nahi" in text or "no" in text:
             return
 
-        if any(keyword in text for keyword in ["pyaas", "thirst", "zyada pani", "more water"]):
+        if any(
+            keyword in text
+            for keyword in ["pyaas", "thirst", "zyada pani", "more water"]
+        ):
             self.symptom_flags["thirst"] = True
-        
-        if any(keyword in text for keyword in ["toilet", "bathroom", "bar bar", "often"]):
+
+        if any(
+            keyword in text for keyword in ["toilet", "bathroom", "bar bar", "often"]
+        ):
             self.symptom_flags["urination"] = True
-        
+
         if any(keyword in text for keyword in ["bhukh", "hunger", "zyada khana"]):
             self.symptom_flags["hunger"] = True
-        
+
         if any(keyword in text for keyword in ["dawa", "pill", "goli"]):
             self.checklist["medication"] = True
-        
+
         if self.symptom_flags["thirst"] or self.symptom_flags["urination"]:
             self.checklist["symptoms"] = True
 
         if any(keyword in text for keyword in ["khana", "food", "roti", "rice"]):
             self.checklist["diet"] = True
-
 
     def get_risk_score(self) -> str:
         """
@@ -43,12 +47,12 @@ class CheckinAgent:
 
         if s["thirst"] or s["urination"]:
             return "CLINICAL_RISK_MODERATE"
-        
+
         return "CLINICAL_RISK_LOW"
 
     def determine_next_move(self, transcript: str, med_status: dict) -> str:
         """
-        This function no longer dictates the exact question. 
+        This function no longer dictates the exact question.
         It provides the LLM with the current STATUS for intelligent response generation.
         """
         text = transcript.lower()
@@ -69,5 +73,5 @@ class CheckinAgent:
         if not self.checklist["diet"]:
             self.current_focus = "diet"
             return "NEED TO CONFIRM BREAKFAST DETAILS for full daily log."
-            
+
         return "Routine check complete. Triage the patient's current symptoms."

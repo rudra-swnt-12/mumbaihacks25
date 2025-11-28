@@ -5,7 +5,7 @@ from app.core.config import settings
 from pydantic import BaseModel
 from passlib.context import CryptContext
 from app.core.database import get_db, Patient, Doctor
-from app.core.schemas import LoginRequest, VerifyRequest, DoctorLoginRequest
+from app.core.schemas import LoginRequest, VerifyRequest, DoctorLoginRequest, ProfileUpdate
 import random
 
 router = APIRouter()
@@ -169,11 +169,16 @@ async def doctor_login(request: DoctorLoginRequest, db: Session = Depends(get_db
 
     if not doctor:
         raise HTTPException(status_code=404, detail="Invalid ID or Password")
-    
-    if settings.DEMO_MASTER_PASSWORD and request.password == settings.DEMO_MASTER_PASSWORD:
-        pass 
+
+    if (
+        settings.DEMO_MASTER_PASSWORD
+        and request.password == settings.DEMO_MASTER_PASSWORD
+    ):
+        pass
     elif doctor.hashed_password is None:
-        raise HTTPException(status_code=401, detail="Account not configured. Use demo password.")
+        raise HTTPException(
+            status_code=401, detail="Account not configured. Use demo password."
+        )
     elif not pwd_context.verify(request.password, doctor.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid ID or Password")
 
@@ -185,8 +190,8 @@ async def doctor_login(request: DoctorLoginRequest, db: Session = Depends(get_db
             "name": doctor.full_name,
             "specialization": doctor.specialization,
             "custom_greeting": doctor.custom_greeting,
-            "is_verified": doctor.is_verified
-        }
+            "is_verified": doctor.is_verified,
+        },
     }
 
 
@@ -195,15 +200,17 @@ async def update_patient_profile(request: ProfileUpdate, db: Session = Depends(g
     """
     Allows the patient to update their profile details from the web/app form.
     """
-    patient = db.query(Patient).filter(Patient.phone_number == request.phone_number).first()
-    
+    patient = (
+        db.query(Patient).filter(Patient.phone_number == request.phone_number).first()
+    )
+
     if not patient:
         raise HTTPException(status_code=404, detail="Patient not found")
 
     patient.full_name = request.full_name
     patient.age = request.age
     patient.gender = request.gender
-    
+
     patient.is_onboarded = True
     db.commit()
 

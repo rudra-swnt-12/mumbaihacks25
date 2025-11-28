@@ -77,6 +77,7 @@ class GreetingUpdate(BaseModel):
     phone_number: str
     new_greeting: str
 
+
 # Input via Doctor (For Patient and Self)
 class VitalsUpdate(BaseModel):
     phone_number: str
