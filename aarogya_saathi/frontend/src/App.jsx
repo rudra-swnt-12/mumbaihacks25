@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import DashboardPage from './pages/DashboardPage';
+import DoctorDashboardPage from './pages/DoctorDashboardPage';
 import DoctorPortal from './pages/DoctorPortal';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import OTPVerificationPage from './pages/OTPVerificationPage';
 
 function App() {
   return (
@@ -14,9 +16,11 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
 
         {/* --- NEW ROUTE --- */}
+        <Route path="/doctor-dashboard" element={<DoctorDashboardPage />} />
         <Route path="/doctor" element={<DoctorPortal />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/otp-verify" element={<OTPVerificationPage />} />
 
       </Routes>
     </Router>

@@ -1,0 +1,598 @@
+.doctor-dashboard {
+    display: flex;
+    height: 100vh;
+    background-color: #f8fafc;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1e293b;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 256px;
+    background-color: white;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.doctor-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.doctor-avatar-placeholder {
+    width: 48px;
+    height: 48px;
+    background-color: #dcfce7;
+    color: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.profile-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #0f172a;
+    margin: 0;
+}
+
+.profile-specialty {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.nav-item.active {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dashboard-header {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weather-icon {
+    color: #f59e0b;
+}
+
+.patient-count {
+    font-weight: 500;
+}
+
+.patient-count strong {
+    color: #0f172a;
+}
+
+.user-profile-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+}
+
+/* Content Grid */
+.content-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Patient Card */
+.patient-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.patient-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.patient-identity {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.patient-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    background-color: #dcfce7;
+    color: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #22c55e;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    border: 2px solid white;
+}
+
+.patient-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+}
+
+.patient-demographics {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.patient-meta-info {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.patient-id {
+    font-family: monospace;
+    color: #0f172a;
+    font-weight: 500;
+}
+
+.patient-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.stat-box h4 {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.risk-high {
+    color: #ef4444;
+}
+
+/* Timeline */
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 1rem 0;
+}
+
+.timeline-item {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.timeline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.timeline-icon.soap {
+    background-color: #fff7ed;
+    color: #f97316;
+}
+
+.timeline-icon.checkin {
+    background-color: #ecfccb;
+    color: #84cc16;
+}
+
+.timeline-icon.call {
+    background-color: #fff1f2;
+    color: #f43f5e;
+}
+
+.timeline-content h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.timeline-content p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.timeline-time {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+/* Priority List */
+.priority-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.priority-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+}
+
+.priority-card.critical {
+    background-color: #fef2f2;
+    border-color: #fee2e2;
+}
+
+.priority-card.high {
+    background-color: #fff7ed;
+    border-color: #ffedd5;
+}
+
+.priority-card.moderate {
+    background-color: #fefce8;
+    border-color: #fef9c3;
+}
+
+.priority-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.critical .status-dot {
+    background-color: #ef4444;
+}
+
+.high .status-dot {
+    background-color: #f97316;
+}
+
+.moderate .status-dot {
+    background-color: #eab308;
+}
+
+.priority-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #0f172a;
+    display: block;
+}
+
+.priority-condition {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.critical .priority-condition {
+    color: #dc2626;
+}
+
+.high .priority-condition {
+    color: #c2410c;
+}
+
+.priority-score {
+    text-align: right;
+}
+
+.score-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.critical .score-value {
+    color: #dc2626;
+}
+
+.high .score-value {
+    color: #ea580c;
+}
+
+.moderate .score-value {
+    color: #ca8a04;
+}
+
+.low .score-value {
+    color: #65a30d;
+}
+
+.score-time {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+/* Intervention Suite */
+.intervention-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+
+.btn-ambulance {
+    background-color: #dc2626;
+}
+
+.btn-ambulance:hover {
+    background-color: #b91c1c;
+}
+
+.btn-neighbor {
+    background-color: #d97706;
+}
+
+.btn-neighbor:hover {
+    background-color: #b45309;
+}
+
+.btn-sms {
+    background-color: #10b981;
+}
+
+.btn-sms:hover {
+    background-color: #059669;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        width: 80px;
+        padding: 1rem;
+    }
+
+    .sidebar span,
+    .profile-name,
+    .profile-specialty,
+    .patient-meta-info {
+        display: none;
+    }
+
+    .doctor-profile {
+        justify-content: center;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: 0.75rem;
+    }
+}
+
+/* Live Transcript */
+.transcript-section {
+    margin-top: 2rem;
+
+    .transcript-text strong {
+        color: #0f172a;
+        font-weight: 600;
+    }
+
+    .transcript-box {
+        background-color: white;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .chat-message {
+        padding: 1rem;
+        border-radius: 0.75rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .ai-message {
+        background-color: #f1f5f9;
+        /* Light blue-gray */
+        color: #1e293b;
+        border-top-left-radius: 0.25rem;
+    }
+
+    .patient-message {
+        background-color: #dcfce7;
+        /* Light green */
+        color: #14532d;
+        /* Dark green text */
+        align-self: flex-end;
+        /* Align to right if we want, but image shows full width or specific alignment. Let's keep it simple or align right. */
+        /* Based on typical chat UIs, patient (user) is usually right. */
+        align-self: flex-end;
+        border-bottom-right-radius: 0.25rem;
+        text-align: right;
+    }
+
+    .chat-message p {
+        margin: 0;
+    }
+
+    .transcript-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: #ef4444;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .recording-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #ef4444;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.4;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }

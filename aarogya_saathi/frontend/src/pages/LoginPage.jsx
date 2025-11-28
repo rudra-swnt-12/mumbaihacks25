@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Phone, Lock, Eye, EyeOff, Stethoscope } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './LoginPage.css';
 
 const LoginPage = () => {
+    const navigate = useNavigate();
     const [userType, setUserType] = useState('patient'); // 'patient' or 'doctor'
     const [showPassword, setShowPassword] = useState(false);
+    const [phoneNumber, setPhoneNumber] = useState('');
+
+    const handleGetOTP = () => {
+        if (phoneNumber) {
+            navigate('/otp-verify', { state: { phoneNumber } });
+        }
+    };
 
     return (
         <div className="login-container">
@@ -67,11 +76,17 @@ const LoginPage = () => {
                                                     type="tel"
                                                     className="form-input"
                                                     placeholder="Enter your phone number"
+                                                    value={phoneNumber}
+                                                    onChange={(e) => setPhoneNumber(e.target.value)}
                                                 />
                                             </div>
                                         </div>
 
-                                        <button type="button" className="login-button">
+                                        <button
+                                            type="button"
+                                            className="login-button"
+                                            onClick={handleGetOTP}
+                                        >
                                             Get OTP
                                         </button>
 
@@ -127,7 +142,11 @@ const LoginPage = () => {
                                             </div>
                                         </div>
 
-                                        <button type="button" className="login-button">
+                                        <button
+                                            type="button"
+                                            className="login-button"
+                                            onClick={() => navigate('/doctor-dashboard')}
+                                        >
                                             Login
                                         </button>
 
