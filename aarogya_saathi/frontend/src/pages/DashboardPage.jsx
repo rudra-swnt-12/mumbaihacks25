@@ -19,17 +19,17 @@ const DashboardPage = () => {
             <LayoutDashboard className="material-icon" size={20} />
             <span>Dashboard</span>
           </a>
-          <a href="#" className="nav-item">
+          {/* <a href="#" className="nav-item">
             <BarChart3 className="material-icon" size={20} />
             <span>Analytics</span>
           </a>
           <a href="#" className="nav-item">
             <Settings className="material-icon" size={20} />
             <span>Settings</span>
-          </a>
+          </a> */}
         </nav>
 
-        <div className="sidebar-footer">
+        {/* <div className="sidebar-footer">
           <a href="#" className="nav-item">
             <HelpCircle className="material-icon" size={20} />
             <span>Help</span>
@@ -38,7 +38,7 @@ const DashboardPage = () => {
             <LogOut className="material-icon" size={20} />
             <span>Logout</span>
           </a>
-        </div>
+        </div> */}
       </aside>
 
       {/* Main Content */}
